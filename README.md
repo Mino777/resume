@@ -91,7 +91,7 @@
 - 'Firebase/Core', '~> 7.0.0'
 - 'Firebase/Auth', '~> 7.0.0'
 - 'GoogleSignIn', '~> 5.0.2'
-- 'Firebase/Storage', '~> 7.0.0' (이미지 저장, )
+- 'Firebase/Storage', '~> 7.0.0' (이미지, 서비스 이용약관, 개인정보 처리방침 저장)
 - 'Kingfisher', '~> 5.15.7' (이미지 비동기 처리, 이미지 캐싱, downsampling, indicator 활용)
 - 'FBSDKLoginKit', '~> 8.1.0'
 - 'RxKakaoSDK', '~> 2.0.0-beta.3'
