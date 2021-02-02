@@ -5,6 +5,7 @@
 현재 iOS 개발자가 되기 위해 준비하고 있습니다.
 
 - [Github](https://github.com/Mino777)
+- jomino7777@gmail.com
 
 ---
 
@@ -89,18 +90,21 @@
 - 'Firebase/Core', '~> 7.0.0'
 - 'Firebase/Auth', '~> 7.0.0'
 - 'GoogleSignIn', '~> 5.0.2'
-- 'Firebase/Storage', '~> 7.0.0'
-- 'Kingfisher', '~> 5.15.7'
+- 'Firebase/Storage', '~> 7.0.0' (이미지 저장, )
+- 'Kingfisher', '~> 5.15.7' (이미지 비동기 처리, 이미지 캐싱, downsampling, indicator 활용)
 - 'FBSDKLoginKit', '~> 8.1.0'
 - 'RxKakaoSDK', '~> 2.0.0-beta.3'
 - 'RxSwift', '~> 5.1.1'
 - 'RxCocoa', '~> 5.1.1' (Alamofire와 KakaoSDK 충돌로 인해 RxKakaoSDK 사용)
-- 'Firebase/DynamicLinks', '~> 7.0.0'
-- 'Firebase/Messaging', '~> 7.0.0'
+- 'Firebase/DynamicLinks', '~> 7.0.0' (친구 추천 기능을 위한 동적 링크 활용)
+- 'Firebase/Messaging', '~> 7.0.0' (Push Notification 활용)
 - 'Mantis', '~> 1.4.4' (Image Crop 기능에서 생산성을 높이기 위해 사용)
 - 'Atributika', '~> 4.9.10' (해시태그 기능에서 NSAttributedString 터치 감지를 위해 사용)
 
-
-#### 트러블슈팅
+#### 문제 해결
 
 - 
+
+#### 아쉬웠던 부분
+
+- MVVM, Protocol에 대한 이해도가 부족해 적용을 못시켜본 점.
