@@ -58,7 +58,7 @@
 
 > 현재는 AR기능이 추가되었는데, 저는 AR기능이 추가되기 직전 버전까지 개발하였습니다.
 
-[AppStore](https://itunes.apple.com/app/id1537755211#?platform=iphone)
+#### [AppStore](https://itunes.apple.com/app/id1537755211#?platform=iphone)
 
 #### 개발 인원
 - PM 1명, DL(개발 리드) 1명, DM(개발 실무자) 2명 (IOS, PHP), DL(디자이너 리드) 1명, DM(디자인 실무자) 1명
@@ -108,4 +108,7 @@
 
 #### 아쉬웠던 부분
 
-- MVVM, Protocol에 대한 이해도가 부족해 적용을 못시켜본 점.
+- MVVM, Clean Swfit(VIP)등 다른 디자인 패턴을 적용시켜보지 못하고 MVC 패턴을 사용한 부분.
+- Protocol에 대한 이해도가 부족해 적용을 못시켜본 부분.
+- 확장성있는 코드에 대한 깊은 고민이 부족했던 부분.
+
