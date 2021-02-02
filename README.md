@@ -2,10 +2,12 @@
 
 1996.06.07
 
-현재 iOS 개발자가 되기 위해 준비하고 있습니다.
-
-- [Github](https://github.com/Mino777)
-- jomino7777@gmail.com
+>* 안녕하세요, 소통을 바탕으로 협업하는 iOS 개발자, 조민호입니다.
+>* 교육 수료 및 앱 런칭 경험을 바탕으로 준비된 iOS 개발자의 역량을 발휘하고,
+>* 서버 개발자, 디자이너와 협업한 경험을 바탕으로 원활하게 소통하는 iOS 개발자가 되겠습니다.
+>* 감사합니다.
+>* [Github](https://github.com/Mino777)
+>* jomino7777@gmail.com
 
 ---
 
@@ -80,7 +82,7 @@
 - 형상관리: GitLab
 - 커뮤니케이션: Slack, Google Sheet, Google Driver
 - UI 구성: Storyboard(Main) + Xib + Code, 다크 모드 금지 처리
-- `Swift5`, `Xcode10`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Contacts`
+- `Swift5`, `Xcode10`,`REST API`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Contacts`
 - 'Alamofire', '~> 4.9.1'
 - 'AlamofireNetworkActivityIndicator', '~> 2.4.0'
 - 'AlamofireObjectMapper', '~> 5.2.1'
