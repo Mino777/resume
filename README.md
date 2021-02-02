@@ -1,7 +1,7 @@
 #### 소개
 - 이름: 조민호
 - 나이: 1996.06.07
-- [Github](https://github.com/Mino777)
+- 깃허브: [Github](https://github.com/Mino777)
 - 이메일: jomino7777@gmail.com
 
 > 안녕하세요, 소통을 바탕으로 협업하는 iOS 개발자, 조민호입니다.
