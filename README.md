@@ -68,7 +68,7 @@
 1. 카카오, 페이스북, 구글, 애플 SNS 로그인 가능 및 회원가입을 하지 않고 제한된 활동을 할 수 있는 게스트 로그인 가능.
 2. Feed를 통해 친구들의 게시글 확인, 수정, 삭제, 좋아요, 댓글작성, 팔로우 확인, 유저 신고&차단 가능
 3. Search를 통해 전체 유저를 대상으로 해시태그, 검색된 게시물의 이미지 확인, 아이디 검색 가능
-4. Creation을 통해 일자형, 십자형 게시글 (사진 + 글) 등록 가능
+4. Creation을 통해 일자형, 십자형 게시글 (사진 + 글) 등록 가능, 글 작성시 #, @ 사용시에 해시태그, 멘션 
 5. 팔로우, 좋아요, 멘션시 해당 유저에게 Push Notification 발송.
 6. Notification을 통해 팔로우, 좋아요, 멘션 알림 확인 가능
 7. Profile을 통해 팔로우, 팔로워 목록, 자신의 게시글 확인, 상대 유저 팔로우, 유저 신고&차단, 연락처를 통한 게시글 공유 가능.
@@ -82,7 +82,7 @@
 - 형상관리: GitLab
 - 커뮤니케이션: Slack, Google Sheet, Google Driver
 - UI 구성: Storyboard(Main) + Xib + Code, 다크 모드 금지 처리
-- `Swift5`, `Xcode10`,`REST API`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Contacts`
+- `Swift5`, `Xcode10`, `TestFlight`, `REST API`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Contacts`
 - 'Alamofire', '~> 4.9.1'
 - 'AlamofireNetworkActivityIndicator', '~> 2.4.0'
 - 'AlamofireObjectMapper', '~> 5.2.1'
