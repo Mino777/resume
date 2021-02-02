@@ -1,3 +1,5 @@
+## 이력서 *<small><update 21.02.03><small>*
+
 #### 소개
 - 이름: 조민호
 - 나이: 1996.06.07
@@ -5,7 +7,7 @@
 - 이메일: jomino7777@gmail.com
 
 > 안녕하세요, 소통을 바탕으로 협업하는 iOS 개발자, 조민호입니다.
-><br> 교육 수료 및 앱 런칭 경험을 바탕으로 준비된 iOS 개발자의 역량을 발휘하고,
+><br> 교육 수료, 앱 런칭, 외주 프로젝트 참여 경험을 바탕으로 준비된 iOS 개발자의 역량을 발휘하고,
 ><br> 서버 개발자, 디자이너, 기획자와 협업한 경험을 바탕으로 원활하게 소통하는 iOS 개발자가 되겠습니다.
 ><br> 감사합니다.
 ---
@@ -79,9 +81,9 @@
 #### 사용한 기술 및 라이브러리
 
 - 형상관리: GitLab
-- 커뮤니케이션: Slack, Google Sheet, Google Driver
+- Tool: Slack, Google Sheet, Google Driver, Zeplin, Xcode, Postman, Sourcetree
 - UI 구성: Storyboard(Main) + Xib + Code, 다크 모드 금지 처리
-- `Swift5`, `Xcode10`, `TestFlight`, `REST API`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Contacts`
+- `Swift5`, `Xcode10`, `TestFlight`, `REST API`, `UIKit`, `Auto Layout`, `UserNotifications`, `Error Handling`, `Localizing`, `Networking`, `Custom Extension`,`Contacts`
 - 'Alamofire', '~> 4.9.1'
 - 'AlamofireNetworkActivityIndicator', '~> 2.4.0'
 - 'AlamofireObjectMapper', '~> 5.2.1'
@@ -104,7 +106,26 @@
 
 #### 문제 해결
 
-- 
+0. 기본적인 문제 해결 루트
+  1) 공식 문서 활용
+  2) 구글링 / 블로그, 유투브 등 정제되지 않은 자료 활용
+  3) 10분간 리프레쉬 (잠깐 쉬었다가 다시 보는 경우에 해결되는 문제들이 있음)
+  4) 각종 커뮤니티 및 사수님께 질문 (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우도 있음)
+  5) 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 사수님과 함께 고민
+
+1. 앱 런칭 심사때 Contacts 사용시, 디바이스에 저장을 하는 것인지, 불러와서 띄워주기만 하는 것인지에 대한 불명확성의 이유로 리젝
+  - 저장하지 않고 불러와서 띄워주기만 한다고 답변 -> 해결
+
+2. 카카오 로그인을 위해 KakaoSDK 라이브러리 사용시 pod에서 Alamofire와 KakaoSDK 버전 충돌
+  - RxKakaoSDK 특정 버전을 사용해 해결
+  
+3. 해시태그 기능
+  - 
+  
+4. 알림함
+  -
+  
+5. 
 
 #### 아쉬웠던 부분
 
