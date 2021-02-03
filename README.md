@@ -441,6 +441,51 @@
   - 각종 커뮤니티에 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우가 많음)
   - 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 깊게 고민.
 
+#### 5.1 안드로이드 및 태블릿에서 이미지가 깨지는 이슈
+- 아이폰 전기종에선 이미지가 깨지는 이슈가 없었으나, 안드로이드에서 디스플레이 크기가 큰 디바이스 및 갤럭시 탭에서 이미지가 깨짐.
+- 이미지를 저장할 때, scaleFactor를 3으로 올리고 이미지를 CoreImage로 변환하고 size를 1080x1080 으로 resize 해서 해결.
+
+<details>
+<summary><b>관련 코드</b></summary>
+<div markdown="1">
+	
+~~~swift
+// MARK: image resize 및 storage upload
+	let image = DrawingViewController.canvasImage
+        guard image != nil else {
+            presentAlert(title: "이미지가 저장되지 않았습니다.", message: "")
+            return
+        }
+        
+        let saveImage = image?.resizeCI(size: CGSize(width: 1080, height: 1080))?.pngData()
+        
+        if let data = saveImage {
+            self.showIndicator()
+            PhotoUploadDataManager().getPhotoUpload(data, VC: self)
+        } else {
+            self.presentAlert(title: "이미지를 불러올 수 없습니다", message: "이미지를 불러올 수 없습니다")
+        }
+	
+// MARK: CoreImage로 변환
+   func resizeCI(size:CGSize) -> UIImage? {
+        let scale = (Double)(size.width) / (Double)(self.size.width)
+        let image = UIKit.CIImage(cgImage:self.cgImage!)
+        
+        let filter = CIFilter(name: "CILanczosScaleTransform")!
+        filter.setValue(image, forKey: kCIInputImageKey)
+        filter.setValue(NSNumber(value:scale), forKey: kCIInputScaleKey)
+        filter.setValue(3.0, forKey:kCIInputAspectRatioKey)
+        let outputImage = filter.value(forKey: kCIOutputImageKey) as? UIKit.CIImage
+        
+        let context = CIContext(options: [CIContextOption.useSoftwareRenderer: false])
+        let resizedImage = UIImage(cgImage: context.createCGImage(outputImage, from: outputImage.extent) ?? self.image)
+        return resizedImage
+    }
+~~~
+
+</div>
+</details>
+
 #### 6. 그 외 트러블 슈팅
 
 ##### 6.1 그림 그리기 툴 커스텀
