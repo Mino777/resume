@@ -28,6 +28,7 @@
 **(프리랜서) 소프트스퀘어드, iOS 개발자** : 2020.8 ~ 2020.12
 - iOS 개발
 - Conti App v1.0.0(1) ~ v1.0.8 앱 런칭, 개발 및 유지보수
+
 ---
 ### 활동
 - **2021.01.29**
@@ -71,35 +72,35 @@
 #### [AppStore](https://itunes.apple.com/kr/app/id1537755211#?platform=iphone)
 
 <details>
-<summary><b>Conti 상세 보기</b></summary>
+<summary><b>Conti 프로젝트 상세 보기</b></summary>
 <div markdown="1">
 	
 ---
 
-#### 제작 기간 & 참여 인원
+#### 1. 제작 기간 & 참여 인원
 - 2020.8.24 ~ 2020.12.31
 - CM 1명 / PM 1명 / DL(개발 리드) 1명 / DM(개발 실무자) 2명 (IOS, PHP) / DL(디자이너 리드) 1명 / DM(디자인 실무자) 1명 (Sketch, Zeplin)
 
 ---
 
-#### 기능
+#### 2. 기능
 1. 카카오, 페이스북, 구글, 애플 SNS 로그인 가능 및 회원가입을 하지 않고 제한된 활동을 할 수 있는 게스트 로그인 가능.
 2. Feed를 통해 팔로우한 유저들의 게시글 확인, 수정, 삭제, 좋아요, 댓글작성, 삭제, 신고, 팔로우 확인, 유저 신고&차단 가능.
 3. Search를 통해 전체 유저를 대상으로 해시태그, 검색된 게시물의 이미지 확인, 아이디 검색 가능.
-4. Creation을 통해 일자형, 십자형 게시글 (사진 + 글) 등록 가능, 글 작성시 #, @ 사용시에 해시태그, 멘션 가능.
+4. Creation을 통해 일자형, 십자형 게시글 (사진 + 글) 등록 가능, 글 작성시 #, @ 사용시에 사용자 목록이 나오고 터치시 자동완성 및 해시태그, 멘션 가능.
 5. 팔로우, 좋아요, 멘션시 해당 유저에게 Push Notification 발송.
 6. Notification을 통해 날짜, 시간별로 팔로우, 좋아요, 멘션 알림 확인 가능
-7. Profile을 통해 팔로우, 팔로워 목록, 자신의 게시글 확인, 상대 유저 팔로우, 유저 신고&차단, 연락처를 통한 게시글 공유 가능.
+7. Profile을 통해 팔로우, 팔로워 목록, 자신의 게시글 확인, 상대 유저 팔로우, 유저 신고&차단, 연락처를 통한 게시글 공유, 친구초대 가능.
 
 ---
 
-#### 사용한 아키텍쳐
+#### 3. 사용한 아키텍쳐
 
 - MVC / Delegation / Singleton
 
 ---
 
-#### 사용한 기술 및 라이브러리
+#### 4. 사용한 기술 및 라이브러리
 
 - 형상관리: GitLab
 - Tool: Slack /  Google Sheets /  Google Driver /  Zeplin /  Xcode /  Postman /  Sourcetree
@@ -127,33 +128,242 @@
 
 ---
 
-#### 핵심 트러블 슈팅
+#### 5. 핵심 트러블 슈팅
 
-##### 기본적인 문제 해결 루트
+- 기본적인 문제 해결 루트
   - 공식 문서 활용.
   - 구글링한 자료를 응용해서 내 상황에 맞게 소화시키기 / 블로그, 유투브 등 정제되지 않은 자료 활용.
   - 10분간 리프레쉬. (잠깐 쉬었다가 다시 보는 경우에 해결되는 문제들이 있음)
   - 각종 커뮤니티 및 사수님께 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우가 많음)
   - 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 사수님과 함께 고민.
+  
+#### 5.1. 페이징 처리 문제
+- 기존엔 단순히 서버 개발자와 협의하여 네트워킹시에 get 파라미터에 페이지를 추가하고, 추가된 데이터를 기존 데이터 배열에 추가해주는 방식으로 진행.
+- 스크롤을 빠르게 내리거나, refresh 시에 비정상적으로 페이징 처리가 되는 이슈.
+- ViewController에서 변수를 추가해 정확한 조건에 해당할 때만 DataManager 인스턴스를 호출하는 방식으로 해결.
+<details>
+<summary><b>관련 코드</b></summary>
+<div markdown="1">
+	
+~~~swift
+// MARK: 페이징 관련 변수들
+    let contentsPerPage = 10
+    var isRequesting: Bool = true
+    var isEnd: Bool = false
 
-##### 1. 앱 런칭 심사때 Contacts 사용시, 디바이스에 저장을 하는 것인지, 불러와서 띄워주기만 하는 것인지에 대한 불명확성의 이유로 리젝.
-  - 저장하지 않고 불러와서 띄워주기만 한다고 답변하여 해결.
+// MARK: 피드 화면 데이터 요청이 성공할 경우 동작
+    func didRetrieveContents(contents: [FeedContentResult]) {
+        isRequesting = false
+        isEnd = contents.count < contentsPerPage
+        self.contents += contents
+        noResultLabel.isHidden = self.contents.count > 0
+        feedCollectionView.reloadData()
+        dismissIndicator()
+    }
+// MARK: 특정 조건이 부합했을 때 DataManager 인스턴스를 호출
+   if !isRequesting && !isEnd && indexPath.row >= contents.count - contentsPerPage/3 {
+        isRequesting = true
+        let page = (contents.count + contentsPerPage) / contentsPerPage
+        FeedContentDataManager().getFeedContent(self, page: page)
+    }
+~~~
 
-##### 2. 카카오 로그인을 위해 KakaoSDK 라이브러리 사용시 pod에서 Alamofire와 KakaoSDK 버전 충돌.
-  - RxKakaoSDK 특정 버전을 사용해 해결.
+</div>
+</details>
+
+#### 5.2 해시태그 기능
+- 해시태그 기능의 경우 구현 난이도가 너무나도 높았었음.
+- 관련 회의에서 총 3가지의 해시태그 구현 방식이 나왔고, 그 중에 최대한 난이도를 낮춘 방법을 택하게 됨.
+- 클라쪽에서 태그에 관한 속성을 설정해주고 제작 상세화면에서 게시글 작성시에 해당 속성에 부합하는 경우 String -> attributedString으로 변환하고 해당 되는 문자열을 추출해 서버에 태그 유저 리스트 조회 요청 파라미터에 넣어 전달.
+- 그리고 해당 목록의 유저를 탭하면 자동완성을 시켜 안정성을 향상시키고 서버에서는 @이 포함된 문자열을 해시태그로 인식하는 방식으로 구현.
+
+<details>
+<summary><b>관련 코드</b></summary>
+<div markdown="1">
+	
+~~~swift
+// MARK: 해시태그, 멘션 관련 string -> attributedString 변환 작업 및 서버에 태그 유저 리스트 조회 요청
+    func textViewDidChange(_ textView: UITextView) {
+        if let tag = textView.getCurrentTag(symbol: "@"), tag.count > 0 {
+            // MARK: 여기서 사용자 목록 요청
+            self.tagUserListSuperView.isHidden = false
+            TagUserListDataManager().getTagUserListInProduce(self, tag)
+            print(tag)
+        } else {
+            self.tagUserListSuperView.isHidden = true
+        }
+        
+        let attributedText = textView.text.getTagAttributedString(location: textView.selectedRange.location)
+        let location = textView.selectedRange.location
+        if attributedText.string.count > textView.text.count {
+            textView.attributedText = attributedText
+            textView.selectedRange = NSMakeRange(min(location + 1, textView.text.count), 0)
+        } else {
+            textView.attributedText = attributedText
+            textView.selectedRange = NSMakeRange(location, 0)
+        }
+    }
+
+// MARK: 현재 입력중인 태그 추출 ( UITextView Extension )
+    func getCurrentTag(symbol: Character = "@") -> String? {
+        let offset = self.offset(from: self.beginningOfDocument, to: self.selectedTextRange!.start)
+        for (i, char) in self.text.substring(range: 0..<offset).reversed().enumerated() {
+            if char == symbol {
+                return self.text.substring(range: (offset - i)..<offset)
+            } else if char == " " {
+                break
+            }
+        }
+        return nil
+    }
+
+// MARK: substring ( String Extension )
+    func substring(from: Int, to: Int) -> String {
+        guard (to >= 0) && (from <= self.count) && (from <= to) else {
+            return ""
+        }
+        let start = index(startIndex, offsetBy: max(from, 0))
+        let end = index(start, offsetBy: min(to, self.count) - from)
+        return String(self[start ..< end])
+    }
+    
+    func substring(range: Range<Int>) -> String {
+        return substring(from: range.lowerBound, to: range.upperBound)
+    }
+    
+    // MARK: indexing
+    func get(_ index: Int) -> String {
+        return self.substring(range: index..<index)
+    }
+    
+    // MARK: 태그 속성 설정
+    func getTagAttributedString(location: Int? = nil) -> NSMutableAttributedString {
+        let attributedText = NSMutableAttributedString()
+        
+        let plainAttributes: [NSAttributedString.Key : Any] = [
+            .foregroundColor : UIColor(named: "gray84") as Any,
+            .font : UIFont(name: "AppleSDGothicNeo-Medium", size: 15)!,
+        ]
+        let mentionAttributes: [NSAttributedString.Key : Any] = [
+            .foregroundColor : UIColor(named: "tagColor") as Any,
+            .font : UIFont(name: "AppleSDGothicNeo-Medium", size: 15)!,
+        ]
+        let hashtagAttributes: [NSAttributedString.Key : Any] = [
+            .foregroundColor : UIColor(named: "tagColor") as Any,
+            .font : UIFont(name: "AppleSDGothicNeo-Medium", size: 15)!,
+        ]
+        
+        var type: Int = -1       // -1 : no type, 0 : plain, 1 : mention(@), 2 : hashtag(#)
+        for char in self {
+            switch (char, type) {
+            case ("@", type) where type != -1:
+                attributedText.append(NSAttributedString(string: " "))
+                type = 1
+            case ("@", _):
+                type = 1
+            case ("#", type) where type != -1:
+                attributedText.append(NSAttributedString(string: " "))
+                type = 2
+            case ("#", _):
+                type = 2
+            case (" ", _), ("\n", _):
+                type = -1
+            case (_, 0), (_, -1):
+                type = 0
+            default:
+                break
+            }
+            switch type {
+            case 1:
+                attributedText.append(NSAttributedString(string: String(char), attributes: mentionAttributes))
+            case 2:
+                attributedText.append(NSAttributedString(string: String(char), attributes: hashtagAttributes))
+            default:
+                attributedText.append(NSAttributedString(string: String(char), attributes: plainAttributes))
+            }
+        }
+        return attributedText
+    }
+~~~
+
+</div>
+</details>
+
+#### 5.3 Contacts를 사용한 친구 기능
+- 연락처를 정렬을 할 때, 처음엔 배열을 자음 배열, 연락처 배열만 가지고 구현을 하려고 했었는데 이렇게 구현할 경우에 추후에 데이터를 넣는 과정에서 데이터들이 꼬이는 이슈가 있었음.
+- 자음 정렬 배열, 연락처 정렬 배열을 따로 만들어서 데이터를 불러올때 넣어주는 방식으로 해결.
+<details>
+<summary><b>관련 코드</b></summary>
+<div markdown="1">
+	
+~~~swift
+// MARK: 연락처 요청 함수
+    func requestConstacts() {
+        let store = CNContactStore() // 연락처 저장소
+        let keys = [CNContactFormatter.descriptorForRequiredKeys(for: .fullName), CNContactPhoneNumbersKey as CNKeyDescriptor] //연락처 키
+        let request = CNContactFetchRequest(keysToFetch: keys) // 연락처 요청 메소드
+        print("연락처 찾기")
+        do {
+            var contacts: [CNContact] = []
+            try store.enumerateContacts(with: request) { contact, stop in
+                if !contact.phoneNumbers.isEmpty {
+                    contacts.append(contact)
+                }
+            }
+            
+            for contact in contacts { // 연락처 어떻게 불러올건지 설정
+                var phoneNumber = contact.phoneNumbers[0].value.value(forKey: "digits") as? String
+                phoneNumber = phoneNumber?.trimmingCharacters(in: .whitespacesAndNewlines)
+                phoneNumber = phoneNumber?.replace(target: "+8210", withString: "010")
+                phoneNumber = phoneNumber?.replace(target: "+82010", withString: "010")
+                phoneNumber = phoneNumber?.replace(target: "-", withString: "")
+                
+                let name = (contact.familyName + contact.givenName).trim
+                guard name.count > 0 else { continue }
+                if let consonant = name.consonant {
+                    if !self.consonants.contains(consonant) {
+                        self.consonants.append(consonant)
+                        self.contacts[consonant] = []
+                    }
+                    self.contacts[consonant]?.append((name, phoneNumber))
+                }
+            }
+            self.consonants.sort() // 자음 정렬
+            self.consonants.forEach { consonant in
+                self.contacts[consonant]?.sort(by: { lhs, rhs -> Bool in
+                    return lhs.name < rhs.name
+                })
+            }
+            self.filteredConsonants = self.consonants
+            self.filteredContacts = self.contacts
+            
+            tableView.reloadData()
+            print("연락처 요청 성공")
+        } catch {
+            self.presentAlert(title: "연락처 정보를 불러올 수 없습니다.") { action in
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
+    }
+~~~
+
+</div>
+</details>
+
+#### 6. 그 외 트러블 슈팅
+
+##### 6.1. 앱 런칭 심사때 Contacts 사용시, 디바이스에 저장을 하는 것인지, 불러와서 띄워주기만 하는 것인지에 대한 불명확성의 이유로 리젝.
+- 저장하지 않고 불러와서 띄워주기만 한다고 답변하여 해결.
+
+##### 6.2. 카카오 로그인을 위해 KakaoSDK 라이브러리 사용시 pod에서 Alamofire와 KakaoSDK 버전 충돌.
+- RxKakaoSDK 특정 버전을 사용해 해결.
   
-##### 3. 해시태그 기능
-  - 
-  
-##### 4. 알림함
-  -
-  
-##### 5.  ViewController가 점점 무거워지는 상황
-- 
+##### 6.3. ViewController가 점점 무거워지는 상황
+- TableView, CollectionView를 사용하는 경우 각 Cell에 updateUI 함수를 만들어 최대한 각자 역할을 명확하게 해주는 방식 사용.
 
 ---
 
-#### 아쉬웠던 부분
+#### 7. 느낀점
 
 - MVVM, Clean Swfit(VIP)등 다른 디자인 패턴을 적용시켜보지 못하고 MVC 패턴을 사용한 부분.
 - Protocol에 대한 이해도가 부족해 적용을 못시켜본 부분.
@@ -174,17 +384,18 @@
 #### AppStore 추후 출시 예정
 
 <details>
-<summary><b>Grap 상세 보기</b></summary>
+<summary><b>Grap 프로젝트 상세 보기</b></summary>
 <div markdown="1">
+	
 ---
 
-#### 제작 기간 & 참여 인원
+#### 1. 제작 기간 & 참여 인원
 - 2020.12.01 ~ 2021.02.01
-- PM 1명 /  AOS 2명 /  iOS 1명 /  PHP 1명 /  디자이너 1명 (Sketch, Zeplin)
+- PM 1명 / AOS 2명 / iOS 1명 / PHP 1명 / 디자이너 1명 (Sketch, Zeplin)
 
 ---
 
-#### 기능
+#### 2. 기능
 1. 메인 탭에서 최신순, 인기순으로 유저들의 공개 그림 일기 확인 및 상세 화면에서 좋아요 가능, 탭바에서 메인 탭 터치시 최상위 인덱스로 이동 가능.
 2. 검색에서 유저 필명, 게시글에 포함된 내용 대상으로 검색 가능. 내 게시물 검색 가능.
 3. 그림 그리기 탭에서 그림 그리기 -> 일기 작성 가능.
@@ -195,13 +406,13 @@
 
 ---
 
-#### 사용한 아키텍쳐
+#### 3. 사용한 아키텍쳐
 
 - MVC / Delegation / Singleton
 
 ---
 
-#### 사용한 기술 및 라이브러리
+#### 4. 사용한 기술 및 라이브러리
 
 - 형상관리: Github
 - Tool: Slack / Meister Task / Notion / Google Sheets / Zeplin / Xcode / Postman / Sourcetree
@@ -220,29 +431,31 @@
 
 ---
 
-#### 문제 해결
+#### 5. 핵심 트러블 슈팅
 
-##### 0. 기본적인 문제 해결 루트
+##### 기본적인 문제 해결 루트
   - 공식 문서 활용.
   - 구글링한 자료를 응용해서 내 상황에 맞게 소화시키기 / 블로그, 유투브 등 정제되지 않은 자료 활용.
   - 10분간 리프레쉬. (잠깐 쉬었다가 다시 보는 경우에 해결되는 문제들이 있음)
   - 각종 커뮤니티에 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우가 많음)
   - 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 깊게 고민.
 
-##### 1.  그림 그리기 툴 커스텀
+#### 6. 그 외 트러블 슈팅
 
-##### 2.  이미지 저장 퀄리티
+##### 그림 그리기 툴 커스텀
 
-##### 3.  vector image 사용
+##### 이미지 저장 퀄리티
 
-##### 4.  TestFlight 빌드시 리젝
+##### vector image 사용
+
+##### TestFlight 빌드시 리젝
 - 프로비저닝 인증서 리셋 후 다시 인증 -> 맥북 재부팅으로 해결
 - 이전에 리젝된 버전들이 다음 날 새벽에 빌드됨 -> TestFlight 자체 이슈였음
 
-##### 5. 
+##### 
 ---
 
-#### 아쉬웠던 부분
+#### 7. 느낀점
 
 - Conti 개발과 병행 + 개발 일정 등을 핑계로, Conti 개발 당시에 부족했던 부분들을 개인적으로 채우지 못하고 그저 사용해봤던 기술, 라이브러리, 코드 스타일, 디자인패턴 등을 그대로 사용해 너무나도 아쉬웠음.
 - Git flow를 적용시켜보고 싶었지만 혼자 작업하니까 필요없겠지 라는 핑계로 그저 master branch 사용과 커밋 메세지, 이슈만 신경쓴 부분.
