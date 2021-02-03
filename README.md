@@ -463,7 +463,7 @@
             self.showIndicator()
             PhotoUploadDataManager().getPhotoUpload(data, VC: self)
         } else {
-            self.presentAlert(title: "이미지를 불러올 수 없습니다", message: "이미지를 불러올 수 없습니다")
+            self.presentAlert(title: "이미지를 불러올 수 없습니다")
         }
 	
 // MARK: CoreImage로 변환
