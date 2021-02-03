@@ -451,7 +451,7 @@
 	
 ~~~swift
 // MARK: image resize 및 storage upload
-	let image = DrawingViewController.canvasImage
+	let image = self.canvasImage
         guard image != nil else {
             presentAlert(title: "이미지가 저장되지 않았습니다.", message: "")
             return
