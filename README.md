@@ -25,11 +25,15 @@
 - iOS MVP 개발 및 기획 참여
 - Grap App v1.0.0(1) ~ v1.0.0(14) 개발
 
-**(프리랜서) 소프트스퀘어드, iOS 개발자** : 2020.9 ~ 2020.12
+**(프리랜서) 소프트스퀘어드, iOS 개발자** : 2020.8 ~ 2020.12
 - iOS 개발
 - Conti App v1.0.0(1) ~ v1.0.8 앱 런칭, 개발 및 유지보수
 ---
 ### 활동
+- **2021.01.29**
+	- Wanted Live Talk 성장하는 iOS 개발자 세미나 참가
+- **2020.08.19**
+	- 2020 NAVER TECH CONCERT 참가
 - **2020.05 ~ 2020.07**
   - 소프트스퀘어드 컴공선배 라이징 프로그래머 1기 수료
     - iOS 프로그래밍, 업무 프로세스 교육 수료
@@ -64,12 +68,17 @@
 
 > 현재는 AR기능이 추가되었는데, 저는 AR기능이 추가되기 직전 버전까지 개발하였습니다.
 
-#### [AppStore](https://itunes.apple.com/app/id1537755211#?platform=iphone)
+#### [AppStore](https://itunes.apple.com/kr/app/id1537755211#?platform=iphone)
 
+<details>
+<summary><b>Conti 상세 보기</b></summary>
+<div markdown="1">
+	
 ---
 
-#### 개발 인원
-- PM 1명, DL(개발 리드) 1명, DM(개발 실무자) 2명 (IOS, PHP), DL(디자이너 리드) 1명, DM(디자인 실무자) 1명 (Sketch, Zeplin)
+#### 제작 기간 & 참여 인원
+- 2020.8.24 ~ 2020.12.31
+- CM 1명 / PM 1명 / DL(개발 리드) 1명 / DM(개발 실무자) 2명 (IOS, PHP) / DL(디자이너 리드) 1명 / DM(디자인 실무자) 1명 (Sketch, Zeplin)
 
 ---
 
@@ -86,19 +95,19 @@
 
 #### 사용한 아키텍쳐
 
-- `MVC`, `Delegation`, `Singleton`
+- MVC / Delegation / Singleton
 
 ---
 
 #### 사용한 기술 및 라이브러리
 
 - 형상관리: GitLab
-- Tool: Slack, Google Sheets, Google Driver, Zeplin, Xcode, Postman, Sourcetree
-- UI: Storyboard(Main) + Xib + Code, 다크 모드 금지 대응
-- Swift5, Xcode10, TestFlight, REST API, CocoaPods, UIKit, Auto Layout, GCD, UserNotifications, Error Handling, Localizing, Networking, Custom Extension, Contacts
-- 'Alamofire', '~> 4.9.1'
+- Tool: Slack /  Google Sheets /  Google Driver /  Zeplin /  Xcode /  Postman /  Sourcetree
+- UI: Storyboard(Main) / Xib + Code /  다크 모드 금지 대응
+- Swift5 / Xcode10 / TestFlight /  REST API /  CocoaPods /  UIKit /  Auto Layout /  GCD /  UserNotifications /  Error Handling /  Localizing /  Networking / Custom Extension /  Contacts
+- 'Alamofire', '~> 4.9.1' (DataManager로 만들어 네트워킹 관리)
 - 'AlamofireNetworkActivityIndicator', '~> 2.4.0'
-- 'AlamofireObjectMapper', '~> 5.2.1'
+- 'AlamofireObjectMapper', '~> 5.2.1' (Entity, Response 생산성을 높이기 위해 사용)
 - 'SnapKit' , '~> 5.0.1'
 - 'Firebase/Analytics' , '~> 7.0.0'
 - 'Firebase/Crashlytics', '~> 7.0.0'
@@ -118,13 +127,13 @@
 
 ---
 
-#### 문제 해결
+#### 핵심 트러블 슈팅
 
-##### 0. 기본적인 문제 해결 루트
+##### 기본적인 문제 해결 루트
   - 공식 문서 활용.
-  - 구글링 / 블로그, 유투브 등 정제되지 않은 자료 활용.
+  - 구글링한 자료를 응용해서 내 상황에 맞게 소화시키기 / 블로그, 유투브 등 정제되지 않은 자료 활용.
   - 10분간 리프레쉬. (잠깐 쉬었다가 다시 보는 경우에 해결되는 문제들이 있음)
-  - 각종 커뮤니티 및 사수님께 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우도 있음)
+  - 각종 커뮤니티 및 사수님께 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우가 많음)
   - 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 사수님과 함께 고민.
 
 ##### 1. 앱 런칭 심사때 Contacts 사용시, 디바이스에 저장을 하는 것인지, 불러와서 띄워주기만 하는 것인지에 대한 불명확성의 이유로 리젝.
@@ -139,7 +148,8 @@
 ##### 4. 알림함
   -
   
-##### 5. 
+##### 5.  ViewController가 점점 무거워지는 상황
+- 
 
 ---
 
@@ -149,6 +159,9 @@
 - Protocol에 대한 이해도가 부족해 적용을 못시켜본 부분.
 - 확장성있는 코드에 대한 깊은 고민이 부족했던 부분.
 
+</div>
+</details>
+
 ---
 
 ## Grap
@@ -157,13 +170,17 @@
 
 > 기존에 있던 안드로이드 앱을 참고로 iOS MVP 개발을 진행 하였고, 추후 새로운 iOS 개발자 분 채용시에 출시 예정입니다.
 
-#### [Google Play Store](https://play.google.com/store/apps/details?id=com.softsquared.grap&hl=en_GB)
+#### [Google Play Store](https://play.google.com/store/apps/details?id=com.softsquared.grap&hl=ko&gl=US)
 #### AppStore 추후 출시 예정
 
+<details>
+<summary><b>Grap 상세 보기</b></summary>
+<div markdown="1">
 ---
 
-#### 개발 인원
-- PM 1명, AOS 2명, iOS 1명, PHP 1명, 디자이너 1명 (Sketch, Zeplin)
+#### 제작 기간 & 참여 인원
+- 2020.12.01 ~ 2021.02.01
+- PM 1명 /  AOS 2명 /  iOS 1명 /  PHP 1명 /  디자이너 1명 (Sketch, Zeplin)
 
 ---
 
@@ -180,26 +197,26 @@
 
 #### 사용한 아키텍쳐
 
-- `MVC`, `Delegation`, `Singleton`
+- MVC / Delegation / Singleton
 
 ---
 
 #### 사용한 기술 및 라이브러리
 
 - 형상관리: Github
-- Tool: Slack, Meister Task, Notion, Google Sheets, Zeplin, Xcode, Postman, Sourcetree
-- UI: No Storyboard, Xib + Code, 다크 모드 금지 대응
-- Swift5, Xcode10, TestFlight, REST API, CocoaPods, UIKit, Auto Layout, GCD, UserNotifications, Error Handling, Localizing, Networking, Custom Extension, Canvas, Drawing, PKTool, CoreImage
-- 'Alamofire'
+- Tool: Slack / Meister Task / Notion / Google Sheets / Zeplin / Xcode / Postman / Sourcetree
+- UI: No Storyboard / Xib + Code / 다크 모드 금지 대응
+- Swift5 / Xcode10 / TestFlight / REST API / CocoaPods / UIKit /  Auto Layout / GCD / UserNotifications / Error Handling / Localizing / Networking / Custom Extension / Canvas / Drawing / PKTool / CoreImage
+- 'Alamofire' (DataManager로 만들어 네트워킹 관리)
 - 'AlamofireNetworkActivityIndicator'
-- 'AlamofireObjectMapper'
+- 'AlamofireObjectMapper' (Entity, Response 생산성을 높이기 위해 사용)
 - 'SnapKit'
 - 'Firebase/Analytics'
 - 'Fabric'
 - 'Crashlytics'
 - 'Firebase/Core'
-- 'Kingfisher'
-- 'Firebase/Storage'
+- 'Kingfisher' (이미지 비동기 처리, 이미지 캐싱, downsampling 활용)
+- 'Firebase/Storage' (그림 이미지, 프로필 이미지, 배너 저장)
 
 ---
 
@@ -207,9 +224,9 @@
 
 ##### 0. 기본적인 문제 해결 루트
   - 공식 문서 활용.
-  - 구글링 / 블로그, 유투브 등 정제되지 않은 자료 활용.
+  - 구글링한 자료를 응용해서 내 상황에 맞게 소화시키기 / 블로그, 유투브 등 정제되지 않은 자료 활용.
   - 10분간 리프레쉬. (잠깐 쉬었다가 다시 보는 경우에 해결되는 문제들이 있음)
-  - 각종 커뮤니티에 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우도 있음)
+  - 각종 커뮤니티에 질문. (질문하기 전에 최대한 깔끔하게 질문하려고 질문을 정제하다보면 해결되는 경우가 많음)
   - 이정도로도 안될시, 해당 태스크의 우선순위를 미루고 다른 태스크를 하며 관련 라이브러리를 찾아서 뜯어보는 등 깊게 고민.
 
 ##### 1.  그림 그리기 툴 커스텀
@@ -218,7 +235,9 @@
 
 ##### 3.  vector image 사용
 
-##### 4.  
+##### 4.  TestFlight 빌드시 리젝
+- 프로비저닝 인증서 리셋 후 다시 인증 -> 맥북 재부팅으로 해결
+- 이전에 리젝된 버전들이 다음 날 새벽에 빌드됨 -> TestFlight 자체 이슈였음
 
 ##### 5. 
 ---
@@ -227,3 +246,6 @@
 
 - Conti 개발과 병행 + 개발 일정 등을 핑계로, Conti 개발 당시에 부족했던 부분들을 개인적으로 채우지 못하고 그저 사용해봤던 기술, 라이브러리, 코드 스타일, 디자인패턴 등을 그대로 사용해 너무나도 아쉬웠음.
 - Git flow를 적용시켜보고 싶었지만 혼자 작업하니까 필요없겠지 라는 핑계로 그저 master branch 사용과 커밋 메세지, 이슈만 신경쓴 부분.
+
+</div>
+</details>
