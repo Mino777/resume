@@ -1,4 +1,4 @@
-## 이력서 *<small><update 21.02.03><small>*
+## 이력서 *<small><update 21.02.04><small>*
 
 ### 소개
 - 이름: 조민호
@@ -359,7 +359,7 @@
 - RxKakaoSDK 특정 버전을 사용해 해결.
   
 ##### 6.3. ViewController가 점점 무거워지는 상황
-- TableView, CollectionView를 사용하는 경우 각 Cell에 updateUI 함수를 만들어 최대한 각자 역할을 명확하게 해주는 방식 사용.
+- TableView, CollectionView를 사용하는 경우 각 Cell에 updateUI 함수를 만들어 최대한 각자 역할을  명확하게 해주는 방식 사용.
 
 ---
 
