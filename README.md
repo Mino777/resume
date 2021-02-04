@@ -420,7 +420,7 @@
 - 형상관리: Github
 - Tool: Slack / Meister Task / Notion / Google Sheets / Zeplin / Xcode / Postman / Sourcetree
 - UI: No Storyboard / Xib + Code / 다크 모드 금지 대응
-- Swift5 / Xcode10 / TestFlight / REST API / CocoaPods / UIKit /  Auto Layout / GCD / UserNotifications / Error Handling / Localizing / Networking / Custom Extension / Canvas / Drawing / PKTool / CoreImage
+- Swift5 / Xcode10 / TestFlight / REST API / CocoaPods / UIKit /  Auto Layout / GCD / UserNotifications / Error Handling / Localizing / Networking / Custom Extension / PKCanvas / PKDrawing / PKTool / CoreImage
 - 'Alamofire' (DataManager로 만들어 네트워킹 관리)
 - 'AlamofireNetworkActivityIndicator'
 - 'AlamofireObjectMapper' (Entity, Response 생산성을 높이기 위해 사용)
