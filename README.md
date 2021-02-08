@@ -142,7 +142,7 @@
 - 스크롤을 빠르게 내리거나, refresh 시에 비정상적으로 페이징 처리가 되는 이슈.
 - ViewController에서 변수를 추가해 정확한 조건에 해당할 때만 DataManager 인스턴스를 호출하는 방식으로 해결.
 <details>
-<summary><b>관련 코드</b></summary>
+<summary><b>🧑‍💻 관련 코드 보기</b></summary>
 <div markdown="1">
 	
 ~~~swift
@@ -178,7 +178,7 @@
 - 그리고 해당 목록의 유저를 탭하면 자동완성을 시켜 안정성을 향상시키고 서버에서는 @이 포함된 문자열을 해시태그로 인식하는 방식으로 구현.
 
 <details>
-<summary><b>관련 코드</b></summary>
+<summary><b>🧑‍💻 관련 코드 보기</b></summary>
 <div markdown="1">
 	
 ~~~swift
@@ -293,7 +293,7 @@
 - 연락처를 정렬을 할 때, 처음엔 배열을 자음 배열, 연락처 배열만 가지고 구현을 하려고 했었는데 이렇게 구현할 경우에 추후에 데이터를 넣는 과정에서 데이터들이 꼬이는 이슈가 있었음.
 - 자음 정렬 배열, 연락처 정렬 배열을 따로 만들어서 데이터를 불러올때 넣어주는 방식으로 해결.
 <details>
-<summary><b>관련 코드</b></summary>
+<summary><b>🧑‍💻 관련 코드 보기</b></summary>
 <div markdown="1">
 	
 ~~~swift
@@ -448,7 +448,7 @@
 - 이미지를 저장할 때, scaleFactor를 3으로 올리고 이미지를 CoreImage로 변환하고 size를 1080x1080 으로 resize 해서 해결.
 
 <details>
-<summary><b>관련 코드</b></summary>
+<summary><b>🧑‍💻 관련 코드 보기</b></summary>
 <div markdown="1">
 	
 ~~~swift
