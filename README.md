@@ -69,6 +69,8 @@
 
 > 현재는 AR기능이 추가되었는데, 저는 AR기능이 추가되기 직전 버전까지 개발하였습니다.
 
+#### [Conti 시연 영상](https://youtu.be/Tj1QKvsx8yw)
+
 #### [AppStore](https://itunes.apple.com/kr/app/id1537755211#?platform=iphone)
 
 <details>
