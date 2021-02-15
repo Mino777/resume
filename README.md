@@ -33,8 +33,15 @@
 ### 활동
 - **2021.01.29**
 	- Wanted Live Talk 성장하는 iOS 개발자 세미나 참가
+	   - 새로운 지식을 얻는 방법
+	   - 프로젝트를 여러명이서 같이 개발할 때 생기는 문제점과 해결방안
+	   - BDD를 시작하는 방법
 - **2020.08.19**
 	- 2020 NAVER TECH CONCERT 참가
+	   - 주니어 개발자의 성장 방향
+	   - 적절한 자료구조 사용에 대한 필요성
+	   - 좋은 동료가 되기 위한 노력
+	   - 빌드 속도를 향상시키는 방법
 - **2020.05 ~ 2020.07**
   - 소프트스퀘어드 컴공선배 라이징 프로그래머 1기 수료
     - iOS 프로그래밍, 업무 프로세스 교육 수료
@@ -384,6 +391,13 @@
 **그림일기를 통해 다양한 사람들과 일상을 공유하는 그림일기 SNS 어플리케이션**
 
 > 기존에 있던 안드로이드 앱을 참고로 iOS MVP 개발을 진행 하였고, 추후 새로운 iOS 개발자 분 채용시에 출시 예정입니다.
+
+<img src="resume/Grap_Image/IMG_2567.PNG" width="150">
+<img src="resume/Grap_Image/IMG_2568.PNG" width="150">
+<img src="resume/Grap_Image/IMG_2569.PNG" width="150">
+<img src="resume/Grap_Image/IMG_2570.PNG" width="150">
+<img src="resume/Grap_Image/IMG_2571.PNG" width="150">
+<img src="resume/Grap_Image/IMG_2572.PNG" width="150">
 
 #### [Google Play Store](https://play.google.com/store/apps/details?id=com.softsquared.grap&hl=ko&gl=US)
 #### AppStore 추후 출시 예정
