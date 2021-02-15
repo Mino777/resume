@@ -392,12 +392,11 @@
 
 > 기존에 있던 안드로이드 앱을 참고로 iOS MVP 개발을 진행 하였고, 추후 새로운 iOS 개발자 분 채용시에 출시 예정입니다.
 
-<img src="resume/Grap_Image/IMG_2567.PNG" width="150">
-<img src="resume/Grap_Image/IMG_2568.PNG" width="150">
-<img src="resume/Grap_Image/IMG_2569.PNG" width="150">
-<img src="resume/Grap_Image/IMG_2570.PNG" width="150">
-<img src="resume/Grap_Image/IMG_2571.PNG" width="150">
-<img src="resume/Grap_Image/IMG_2572.PNG" width="150">
+<img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2567.PNG?raw=true" width="150"> <img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2568.PNG?raw=true" width="150">
+<img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2569.PNG?raw=true" width="150">
+<img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2570.PNG?raw=true" width="150">
+<img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2571.PNG?raw=true" width="150">
+<img src="https://github.com/Mino777/resume/blob/main/Grap_Image/IMG_2572.PNG?raw=true" width="150">
 
 #### [Google Play Store](https://play.google.com/store/apps/details?id=com.softsquared.grap&hl=ko&gl=US)
 #### AppStore 추후 출시 예정
