@@ -97,7 +97,7 @@
 2. Feed를 통해 팔로우한 유저들의 게시글 확인, 수정, 삭제, 좋아요, 댓글작성, 삭제, 신고, 팔로우 확인, 유저 신고&차단 가능.
 3. Search를 통해 전체 유저를 대상으로 해시태그, 검색된 게시물의 이미지 확인, 아이디 검색 가능.
 4. Creation을 통해 일자형, 십자형 게시글 (사진 + 글) 등록 가능, 글 작성시 #, @ 사용시에 사용자 목록이 나오고 터치시 자동완성 및 해시태그, 멘션 가능.
-5. 팔로우, 좋아요, 멘션시 해당 유저에게 Push Notification 발송.
+5. FCM을 이용해 팔로우, 좋아요, 멘션시 해당 유저에게 Push Notification 발송.
 6. Notification을 통해 날짜, 시간별로 팔로우, 좋아요, 멘션 알림 확인 가능
 7. Profile을 통해 팔로우, 팔로워 목록, 자신의 게시글 확인, 상대 유저 팔로우, 유저 신고&차단, 연락처를 통한 게시글 공유, 친구초대 가능.
 
@@ -114,7 +114,7 @@
 - 형상관리: GitLab
 - Tool: Slack /  Google Sheets /  Google Driver /  Zeplin /  Xcode /  Postman /  Sourcetree
 - UI: Storyboard(Main) / Xib + Code /  다크 모드 금지 대응
-- Swift5 / Xcode10 / TestFlight /  REST API /  CocoaPods /  UIKit /  Auto Layout /  GCD /  UserNotifications /  Error Handling /  Localizing /  Networking / Custom Extension /  Contacts
+- Swift5 / Xcode10 / TestFlight /  REST API /  CocoaPods /  UIKit /  Auto Layout /  GCD /  UserNotifications /  Error Handling /  Localizing /  Networking / Custom Extension / Contacts
 - 'Alamofire', '~> 4.9.1' (DataManager로 만들어 네트워킹 관리)
 - 'AlamofireNetworkActivityIndicator', '~> 2.4.0'
 - 'AlamofireObjectMapper', '~> 5.2.1' (Entity, Response 생산성을 높이기 위해 사용)
