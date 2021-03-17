@@ -3,7 +3,6 @@
 ### 소개
 - 이름: 조민호
 - 나이: 1996.06.07
-- 병역: 공군병장 만기제대
 - 깃허브: [Github](https://github.com/Mino777)
 - 이메일: jomino7777@gmail.com
 
